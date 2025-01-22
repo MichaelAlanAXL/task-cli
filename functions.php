@@ -54,6 +54,23 @@ function loadTasks() {
     return json_decode(file_get_contents(TASKS_FILE), true) ?? [];
 }
 
+function listDone() {
+    $tasks = loadTasks();
+
+    $doneTasks = array_filter($tasks, function($task) {
+        return $task['status'] === 'concluída';
+    });
+
+    if (empty($doneTasks)) {
+        echo "Nenhuma tarefa concluída encontrada.\n";
+    } else {
+        foreach ($doneTasks as $task) {
+            echo "[{$task['id']}] - {$task['task']} ({$task['status']}) - {$task['create_at']}\n";
+        }
+    }
+
+}
+
 function saveTasks($tasks) {
     file_put_contents(TASKS_FILE, json_encode($tasks, JSON_PRETTY_PRINT));
 }

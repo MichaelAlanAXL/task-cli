@@ -17,7 +17,11 @@ if (isset($arguments[1])) {
 			break;
 
 		case 'list':
-			listTasks();
+			if (isset($arguments[2]) && $arguments[2] === 'done') {
+				listDone();
+			} else {
+				listTasks();
+			}			
 			break;
 
 		case 'done':
