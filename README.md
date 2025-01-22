@@ -1,4 +1,5 @@
 # Task Tracker CLI 📝
+[🔗 Acesse o projeto no GitHub](https://github.com/MichaelAlanAXL/task-cli)
 
 Um simples gerenciador de tarefas via linha de comando (CLI) feito em PHP.
 
